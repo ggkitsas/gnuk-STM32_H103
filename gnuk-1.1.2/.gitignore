@@ -1,6 +1,7 @@
 *.lst
 *.o
 *.pyc
+*.elf
 src/.dep
 src/Makefile
 src/config.h
