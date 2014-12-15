@@ -15,4 +15,4 @@ gnuk-flash-stlink:
 gnuk-flash-versaloon:
 	cp $(GNUK)/src/build/gnuk.elf . && \
 	sudo $(OPENOCD_BIN)/openocd gdb_memory_map disable -f interface/vsllink-swd.cfg -f board/olimex_stm32_h103.cfg -f $(GNUK)/tool/openocd-script/write.tcl
-	#sudo /home/cyc0/Projects/openocd/build/bin/openocd gdb_memory_map disable -f interface/vsllink-swd.cfg -f board/olimex_stm32_h103.cfg -f gnuk-1.1.2/tool/openocd-script/write.tcl
+	#sudo ~/Projects/openocd/build/bin/openocd gdb_memory_map disable -f interface/vsllink-swd.cfg -f board/olimex_stm32_h103.cfg -f gnuk-1.1.2/tool/openocd-script/write.tcl
