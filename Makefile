@@ -1,10 +1,10 @@
 ROOT_DIR=$(CURDIR)
 GNUK=$(ROOT_DIR)/gnuk-1.1.2/
-OPENOCD_BIN?=/home/cyc0/Projects/openocd/build/bin
+OPENOCD_BIN?=~/Projects/openocd/build/bin
 
 gnuk:
 	cd $(GNUK)/src && \
-    ./configure --vidpid=234b:0000 --target=OLIMEX_STM32_H103 && \
+    ./configure --vidpid=234b:0000 --target=OLIMEX_STM32_H103 --enable-keygen && \
 	make -j$(J)
 
 gnuk-flash-stlink:
