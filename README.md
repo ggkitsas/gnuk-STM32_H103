@@ -14,3 +14,4 @@ make gnuk-flash-versaloon
 Press the reset button to the board
 
 Your gnuk token is ready!
+
