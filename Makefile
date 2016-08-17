@@ -1,11 +1,17 @@
 ROOT_DIR=$(CURDIR)
-GNUK=$(ROOT_DIR)/gnuk-1.1.2/
+GNUK=$(ROOT_DIR)/gnuk/
 OPENOCD_BIN?=~/Projects/openocd/build/bin
+J?=1
 
-gnuk:
+.PHONY: gnuk
+
+gnuk: #$(GNUK)/src/build/gnuk.elf $(GNUK)/src/build/gnuk.bin
 	cd $(GNUK)/src && \
-    ./configure --vidpid=234b:0000 --target=OLIMEX_STM32_H103 --enable-keygen && \
+    ./configure --vidpid=234b:0000 --target=OLIMEX_STM32_H103 && \
 	make -j$(J)
+
+clean:
+	cd $(GNUK)/src && make clean && make distclean
 
 gnuk-flash-stlink:
 	cd $(GNUK) && \
@@ -15,4 +21,4 @@ gnuk-flash-stlink:
 gnuk-flash-versaloon:
 	cp $(GNUK)/src/build/gnuk.elf . && \
 	sudo $(OPENOCD_BIN)/openocd gdb_memory_map disable -f interface/vsllink-swd.cfg -f board/olimex_stm32_h103.cfg -f $(GNUK)/tool/openocd-script/write.tcl
-	#sudo ~/Projects/openocd/build/bin/openocd gdb_memory_map disable -f interface/vsllink-swd.cfg -f board/olimex_stm32_h103.cfg -f gnuk-1.1.2/tool/openocd-script/write.tcl
+

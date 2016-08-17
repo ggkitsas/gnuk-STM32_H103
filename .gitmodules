@@ -1,0 +1,3 @@
+[submodule "gnuk"]
+	path = gnuk
+	url = git://git.gniibe.org/gnuk/gnuk.git/
