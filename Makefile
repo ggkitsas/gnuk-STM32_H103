@@ -1,4 +1,5 @@
 ROOT_DIR=$(CURDIR)
+BUILD_DIR=$(ROOT_DIR)/build
 GNUK=$(ROOT_DIR)/gnuk/
 OPENOCD_BIN?=~/Projects/openocd/build/bin
 J?=1
@@ -9,6 +10,7 @@ gnuk: #$(GNUK)/src/build/gnuk.elf $(GNUK)/src/build/gnuk.bin
 	cd $(GNUK)/src && \
     ./configure --vidpid=234b:0000 --target=OLIMEX_STM32_H103 && \
 	make -j$(J)
+	cp $(GNUK)/src/build/gnuk.elf $(GNUK)/src/build/gnuk.bin $(BUILD_DIR)
 
 clean:
 	cd $(GNUK)/src && make clean && make distclean
